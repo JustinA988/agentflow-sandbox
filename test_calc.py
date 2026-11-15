@@ -1,4 +1,7 @@
-from calc import add
+from calc import add, power
 
 def test_add():
     assert add(2, 3) == 5
+
+def test_power():
+    assert power(2, 3) == 8
