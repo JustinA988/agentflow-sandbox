@@ -1,3 +1,5 @@
+import pytest
+
 from calc import add, divide
 
 
@@ -7,11 +9,9 @@ def test_add():
 
 def test_divide_normal():
     assert divide(10, 2) == 5
+    assert divide(1, 4) == 0.25
 
 
 def test_divide_by_zero_raises():
-    try:
+    with pytest.raises(ValueError, match="Cannot divide by zero"):
         divide(10, 0)
-        assert False, "Should have raised ValueError"
-    except ValueError:
-        pass
